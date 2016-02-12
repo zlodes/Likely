@@ -1,3 +1,4 @@
+// General
 .likely,
 .likely__widget {
     -webkit-font-smoothing: antialiased;
@@ -32,19 +33,59 @@
     visibility: inherit;
 }
 
+// Styles
 .likely {
+    line-height: 50px;
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
 
     &__widget {
-        display: inline-block;
+        display: block;
         position: relative;
         white-space: nowrap;
+        border-radius: 50%;
+        height: 50px;
+        font-size: 12px;
+        color: #fff;
+        cursor: pointer;
+        overflow hidden;
+        margin-bottom: 10px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, .3);
+        visibility: hidden;
+        opacity: 0;
+        transform: translate3d(0, 10px, 0);
+        transition: all 0.14s ease;
+        
+        &:last-child {
+            margin-bottom: 0;
+        }
+        
+        &_more {
+            transform: translate3d(0, 0, 0);
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+    
+    &__icon {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+    }
+
+    svg {
+        vertical-align: -8px;
+        width: 24px;
+        height: 24px;
+        fill: #fff;
     }
 
     &__button,
     &__counter {
         text-decoration: none;
         text-rendering: optimizeLegibility;
-        display: inline-block;
+        display: none;
         margin: 0;
         outline: 0;
     }
@@ -56,18 +97,20 @@
     }
 
     &__counter {
-        display: none;
         position: relative;
         font-weight: normal;
+        font-size: 11px;
+        opacity: .5;
     }
 
-    &_ready &__counter {
-        display: inline-block;
-    }
+    // &_ready &__counter {
+    //     display: inline-block;
+    // }
+    
 
-    &_ready &__counter_empty {
-        display: none;
-    }
+    // &_ready &__counter_empty {
+    //     display: none;
+    // }
 
     &__widget,
     &__icon,
@@ -76,195 +119,37 @@
         vertical-align: top;
     }
 
-    &__widget {
-        transition: background .33s ease-out, color .33s ease-out, fill .33s ease-out;
-        line-height: inherit;
-
-        &:hover, &:active, &:focus {
-            transition: none;
-            cursor: pointer;
-        }
-
-    }
-
-    &__icon {
-        position: relative;
-        text-align: left;
-        display: inline-block;
-    }
-
-    svg {
-        position: absolute;
-    }
-
-    &__button,
-    &__counter {
-        line-height: inherit;
-        cursor: inherit;
-    }
-
     &__button:empty {
         display: none;
     }
 
-    &__counter {
-        text-align: center;
-    }
+} // .likely
 
-}
-
-/* Style options */
-.likely {
-    
+.likely_expanded {
     .likely__widget {
-        color: #000;
-        background: rgba(236,236,236,1);
-        background: rgba(231,231,231,.8);
+        transform: translate3d(0, 0, 0);
+        visibility: visible;
+        opacity: 1;
     }
-    
-    .likely__counter {
-        background-size: 1px 1px;
-        background-repeat: repeat-y;           
-        background-image: linear-gradient(to right, rgba(0,0,0,.2) 0, rgba(0,0,0,0) .5px, rgba(0,0,0,0) 100%)
-    }
-    
 }
 
-.likely-light {
-    
-    .likely__widget {
-        color: #fff;
-        fill: #fff;
-        background: rgba(236,236,236,.16);
-        text-shadow: rgba(0,0,0,.2) 0 0 .33em;
-    }
-    
-    .likely__counter {
-        background-image: linear-gradient(to right, rgba(255,255,255,.4) 0, rgba(255,255,255,0) .5px, rgba(255,255,255,0) 100%)
-    }
-    
-}
-
+// Colors
 colorize(button, color) {
     .likely__widget_{button} {
-        fill: color;
+        background: color;
         
-        &:hover, &:active, &:focus {
-            background: alpha(mix(#fff,color,75%),.8);
-        }
-    }
-    .likely-light {
-        .likely__widget_{button} {
-            &:hover, &:active, &:focus {
-                text-shadow: color 0 0 .25em;
-                background: alpha(color,0.7);
-            }
+        &:hover, &:active, &:focus, &.active {
+            background: mix(#000,color,15%);
         }
     }
 }
 
-colorize('facebook',      rgb(66,84,151)); // #425497
-colorize('twitter',       rgb(0,183,236)); // #00b7ec
-colorize('gplus',         rgb(221,66,65)); // #dd4241
-colorize('vkontakte',     rgb(82,110,143)); // #526e8f);
-colorize('odnoklassniki', #f6903b);
+colorize('twitter', #31adf4);
+colorize('facebook', #304591);
+colorize('vkontakte', #527397);
+colorize('gplus', #d94435);
+colorize('odnoklassniki', #f2812e);
 colorize('telegram', #2ca5e0);
-colorize('whatsapp', #49c354);
+colorize('whatsapp', #0f9d58);
 
-/* Size options */
-
-.likely {
-    line-height: 20px;
-    margin: 0 -5px -10px;
-    
-    .likely__widget {
-        font-size: 14px;
-        border-radius: 3px;
-        height: 22px;
-        margin: 0 5px 10px;
-    }
-    
-    .likely__icon {
-        width: 22px; height: 22px;
-    }
-    
-    .likely__button {
-        padding: 1px 4px 1px 0;
-    }
-    
-    .likely__counter {
-        padding: 1px 4px;
-    }
-    
-    svg {
-        left: 3px;
-        top: 3px;
-        width: 16px;
-        height: 16px;
-    }
-    
-}
-
-.likely-big {
-    line-height: 28px;
-    margin: 0 -6px -12px;
-    
-    .likely__widget {
-        font-size: 18px;
-        border-radius: 4px;
-        height: 32px;
-        margin: 0 6px 12px;
-    }
-    
-    .likely__icon {
-        width: 32px; height: 32px;
-    }
-    
-    .likely__button {
-        padding: 2px 6px 2px 0;
-    }
-    
-    .likely__counter {
-        padding: 2px 6px;
-    }
-    
-    svg {
-        left: 4px;
-        top: 4px;
-        width: 24px;
-        height: 24px;
-    }
-    
-}
-
-.likely-small {
-    line-height: 14px;
-    margin: 0 -4px -8px;
-    
-    .likely__widget {
-        font-size: 12px;
-        border-radius: 2px;
-        height: 18px;
-        margin: 0 4px 8px;
-    }
-    
-    .likely__icon {
-        width: 18px; height: 18px;
-    }
-    
-    .likely__button {
-        padding: 2px 3px 2px 0;
-    }
-    
-    .likely__counter {
-        padding: 2px 3px;
-    }
-    
-    svg {
-        left: 3px;
-        top: 3px;
-        width: 12px;
-        height: 12px;
-    }
-    
-}
+colorize('more', #ce8104);
