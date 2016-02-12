@@ -188,19 +188,33 @@ LikelyButton.prototype = {
      */
     click: function () {
         var options = this.options;
-        
-        if (options.click.call(this)) {
-            var url = utils.makeUrl(options.popupUrl, {
-                url:   options.url,
-                title: options.title
-            });
-            
-            dom.openPopup(
-                this.addAdditionalParamsToUrl(url), 
-                config.prefix + this.service,
-                options.popupWidth, 
-                options.popupHeight
+
+        if ( this.service == 'more' ){
+
+            dom.toggleVisible(
+                options.parent,
+                options.className
             );
+
+            var el = document.querySelector('.' + config.prefix + 'widget' + '_' + this.service);
+            el.classList.toggle('active');
+
+        } else {
+
+            if (options.click.call(this)) {
+                var url = utils.makeUrl(options.popupUrl, {
+                    url:   options.url,
+                    title: options.title
+                });
+                
+                dom.openPopup(
+                    this.addAdditionalParamsToUrl(url), 
+                    config.prefix + this.service,
+                    options.popupWidth, 
+                    options.popupHeight
+                );
+            }
+
         }
         
         return false;
