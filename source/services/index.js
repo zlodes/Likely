@@ -9,7 +9,6 @@ var Service = require('../service'),
 var services = {
     odnoklassniki: require('./odnoklassniki'),
     vkontakte:     require('./vk'),
-    pinterest:     require('./pinterest'),
     facebook:      require('./facebook'),
     twitter:       require('./twitter'),
     gplus:         require('./gplus')
