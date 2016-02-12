@@ -12,7 +12,8 @@ var services = {
     facebook:      require('./facebook'),
     twitter:       require('./twitter'),
     gplus:         require('./gplus'),
-    telegram:      require('./telegram')
+    telegram:      require('./telegram'),
+    whatsapp:      require('./whatsapp')
 };
 
 utils.each(services, function (service, key) {
