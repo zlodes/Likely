@@ -11,7 +11,8 @@ var services = {
     vkontakte:     require('./vk'),
     facebook:      require('./facebook'),
     twitter:       require('./twitter'),
-    gplus:         require('./gplus')
+    gplus:         require('./gplus'),
+    telegram:      require('./telegram')
 };
 
 utils.each(services, function (service, key) {
