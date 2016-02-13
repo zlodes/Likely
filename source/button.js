@@ -173,7 +173,7 @@ LikelyButton.prototype = {
         
         if (!counter && !this.options.zeroes) {
             options.className += ' ' + config.prefix + 'counter_empty';
-            options.content = '';
+            options.content = '0';
         }
         
         this.widget.appendChild(
