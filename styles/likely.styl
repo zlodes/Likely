@@ -168,6 +168,8 @@
                 margin-left: -2px;
                 
                 @media all and (min-width: 760px){
+                    width: 12px;
+                    height: 12px;
                     vertical-align: -2px;
                 }
             }
@@ -238,6 +240,18 @@
         opacity: 1;
         -webkit-transform: translate3d(0, 0, 0);
                 transform: translate3d(0, 0, 0);
+    }
+}
+
+.likely_feed {
+    display: none;
+    
+    @media all and (min-width: 760px){
+        display: inline-block;
+    }
+    
+    .likely__widget_more {
+        display: none;
     }
 }
 
