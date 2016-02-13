@@ -3,6 +3,7 @@ The MIT License
 Copyright © 2015 Ilya Birman (http://ilyabirman.net/)
 Copyright © 2015 Evgeny Steblinsky (http://volter9.github.io)
 Copyright © 2012 Artem Sapegin (http://sapegin.me), contributors
+Copyright © 2016 Valery Sittsov (http://valerypatorius.github.io), contributors
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
