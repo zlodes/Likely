@@ -3,7 +3,7 @@
  */
 
 module.exports = {
-	counterUrl: 'https://openshare.the.tj/count.json?url={url}&callback=?',
+	counterUrl: 'https://openshare.the.tj/count.json?url={url}',
 	convertNumber: function (counter) {
 		return counter.count;
 	},
