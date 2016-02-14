@@ -1,4 +1,8 @@
 // General
+.likely {
+    vertical-align: middle;
+}
+
 .likely,
 .likely__widget {
     -webkit-font-smoothing: antialiased;
@@ -260,7 +264,7 @@ colorize(button, color) {
     .likely__widget_{button} {
         background: color;
         
-        &:hover, &:active, &:focus, &.active {
+        &:hover, &.active {
             background: mix(#000,color,15%);
         }
     }
