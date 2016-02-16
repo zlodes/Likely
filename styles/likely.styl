@@ -67,8 +67,8 @@
         box-shadow: 2px 2px 5px rgba(0, 0, 0, .3);
         visibility: hidden;
         opacity: 0;
-        -webkit-transform: translate3d(0, 10px, 0);
-                transform: translate3d(0, 10px, 0);
+        -webkit-transform: translateY(10px);
+                transform: translateY(10px);
         -webkit-transition-duration: 0.14s;
                 transition-duration: 0.14s;
         -webkit-transition-timing-function: ease;
@@ -89,8 +89,8 @@
             box-shadow: none;
             visibility: visible;
             opacity: 1;
-            -webkit-transform: translate3d(0, 0, 0);
-                    transform: translate3d(0, 0, 0);
+            -webkit-transform: translateY(0);
+                    transform: translateY(0);
             -webkit-transition-property: background;
                     transition-property: background;
         }
@@ -112,8 +112,8 @@
         &_more {
             visibility: visible;
             opacity: 1;
-            -webkit-transform: translate3d(0, 0, 0);
-                    transform: translate3d(0, 0, 0);
+            -webkit-transform: translateY(0);
+                    transform: translateY(0);
             
             @media all and (min-width: 760px){
                 display: none;
@@ -242,8 +242,8 @@
     .likely__widget {
         visibility: visible;
         opacity: 1;
-        -webkit-transform: translate3d(0, 0, 0);
-                transform: translate3d(0, 0, 0);
+        -webkit-transform: translateY(0);
+                transform: translateY(0);
     }
 }
 
