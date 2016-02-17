@@ -2,11 +2,28 @@
  * Twitter service provider
  */
 
-module.exports = {
-	counterUrl: 'https://openshare.the.tj/count.json?url={url}',
-	convertNumber: function (counter) {
-		return counter.count;
-	},
+var config = require('../config'),
+    utils  = require('../utils'),
+    dom    = require('../dom');
+
+var twitter = {
+    counterUrl: 'https://openshare.the.tj/count.json?url={url}',
+    counter: function (url, factory) {
+
+        var request = new XMLHttpRequest();
+        request.open('GET', url, true);
+
+        request.onload = function() {
+            if (this.status >= 200 && this.status < 400) {
+                var data = JSON.parse(this.response);
+                count = data.count;
+                factory(count);
+            }
+        };
+
+        request.send();
+
+    },
     popupUrl: 'https://twitter.com/intent/tweet?url={url}&text={title}',
     popupWidth: 600,
     popupHeight: 450,
@@ -18,3 +35,5 @@ module.exports = {
         return true;
     }
 };
+
+module.exports = twitter;

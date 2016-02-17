@@ -11,7 +11,7 @@ var counter = function (url, factory) {
         try {
             if (typeof self.convertNumber === 'function') {
                 count = self.convertNumber(count);
-            }
+            } 
             
             factory(count);
         } 
