@@ -218,11 +218,19 @@
         font-size: 11px;
         opacity: .5;
         padding-right: 6px;
+        
+        &_empty {
+            display: none;
+        }
     }
 
     &_ready &__counter {
         @media all and (min-width: 760px){
             display: inline-block;
+        }
+        
+        &_empty {
+            display: none;
         }
     }
 
