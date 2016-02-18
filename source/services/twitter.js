@@ -2,9 +2,7 @@
  * Twitter service provider
  */
 
-var config = require('../config'),
-    utils  = require('../utils'),
-    dom    = require('../dom');
+var config = require('../config');
 
 var twitter = {
     counterUrl: 'https://openshare.the.tj/count.json?url={url}',
@@ -24,7 +22,7 @@ var twitter = {
         request.send();
 
     },
-    popupUrl: 'https://twitter.com/intent/tweet?url={url}&text={title}',
+    popupUrl: config.protocol + '//twitter.com/intent/tweet?url={url}&text={title}',
     popupWidth: 600,
     popupHeight: 450,
     click: function () {

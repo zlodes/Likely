@@ -12,6 +12,7 @@ var services = {
     facebook:      require('./facebook'),
     twitter:       require('./twitter'),
     gplus:         require('./gplus'),
+    pocket:        require('./pocket'),
     telegram:      require('./telegram'),
     whatsapp:      require('./whatsapp'),
     more:          require('./more')
