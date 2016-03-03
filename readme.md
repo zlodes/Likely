@@ -48,6 +48,9 @@ Keeping it will hide social buttons under one button, which will be fixed in bot
 You can have several Likely button sets on the page, but more than one "More" button per page won't work. 
 Use it only if you have one button set on page (in article, for example).
 
+### Styling
+For custom styles add class `.likely_custom` to `.likely` container and then write your own css.
+
 ## Options
 
 You can set some options on Likely button set via `data-*` attributes:
