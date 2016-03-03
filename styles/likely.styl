@@ -14,13 +14,17 @@
     list-style: none !important;
     font-weight: normal;
     font-family: "Helvetica Neue", Arial, sans-serif;
-    font-size: inherit;
 }
 
 // Hide buttons until they are loaded
 .likely {
     opacity: 0;
-    font-size: 0 !important;
+    font-size: 0;
+    
+    &__widget {
+        font-size: 1rem;
+        cursor: pointer;
+    }
 }
 
 .likely_visible {
@@ -38,8 +42,8 @@
     visibility: inherit;
 }
 
-// Styles
-.likely {
+// Default styles
+.likely:not(.likely_custom) {
     text-align: left;
     line-height: 42px;
     position: fixed;
@@ -55,84 +59,201 @@
         z-index: auto;
     }
 
-    &__widget {
-        display: block;
-        text-align: center;
-        position: relative;
-        white-space: nowrap;
-        border-radius: 50%;
-        height: 42px;
-        font-size: 12px;
-        color: #fff;
-        cursor: pointer;
-        overflow hidden;
-        margin-bottom: 6px;
-        box-shadow: 2px 2px 5px rgba(0, 0, 0, .3);
-        visibility: hidden;
-        opacity: 0;
-        -webkit-transform: translateY(6px);
-                transform: translateY(6px);
-        -webkit-transition-duration: 0.14s;
-                transition-duration: 0.14s;
-        -webkit-transition-timing-function: ease;
-                transition-timing-function: ease;
-        -webkit-transition-property: background, transform, opacity, visibility;
-                transition-property: background, transform, opacity, visibility;
-        -webkit-user-select: none;
-           -moz-user-select: none;
-            -ms-user-select: none;
-                user-select: none;
+}
+    
+.likely:not(.likely_custom) {
+    
+    .likely {
         
-        @media all and (min-width: 760px){
-            display: inline-block;
-            height: 20px;
-            border-radius: 3px;
-            margin-bottom: 0;
-            margin-right: 4px;
-            box-shadow: none;
-            visibility: visible;
-            opacity: 1;
-            -webkit-transform: translateY(0);
-                    transform: translateY(0);
-            -webkit-transition-property: background;
-                    transition-property: background;
-        }
-        
-        &:last-child {
-            margin-bottom: 0;
+        &__widget {
+            display: block;
+            text-align: center;
+            position: relative;
+            white-space: nowrap;
+            border-radius: 50%;
+            height: 42px;
+            font-size: 12px;
+            color: #fff;
+            cursor: pointer;
+            overflow hidden;
+            margin-bottom: 6px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, .3);
+            visibility: hidden;
+            opacity: 0;
+            -webkit-transform: translateY(6px);
+                    transform: translateY(6px);
+            -webkit-transition-duration: 0.14s;
+                    transition-duration: 0.14s;
+            -webkit-transition-timing-function: ease;
+                    transition-timing-function: ease;
+            -webkit-transition-property: background, transform, opacity, visibility;
+                    transition-property: background, transform, opacity, visibility;
+            -webkit-user-select: none;
+               -moz-user-select: none;
+                -ms-user-select: none;
+                    user-select: none;
             
             @media all and (min-width: 760px){
-                margin-right: 0;
+                display: inline-block;
+                height: 20px;
+                border-radius: 3px;
+                margin-bottom: 0;
+                margin-right: 4px;
+                box-shadow: none;
+                visibility: visible;
+                opacity: 1;
+                -webkit-transform: translateY(0);
+                        transform: translateY(0);
+                -webkit-transition-property: background;
+                        transition-property: background;
+            }
+            
+            &:last-child {
+                margin-bottom: 0;
+                
+                @media all and (min-width: 760px){
+                    margin-right: 0;
+                }
+            }
+            
+            &_pocket {
+                display: none;
+                
+                @media all and (min-width: 760px){
+                    display: inline-block;
+                }
+            }
+            
+            &_telegram, &_whatsapp {
+                @media all and (min-width: 760px){
+                    display: none;
+                }
+            }
+            
+            &_more {
+                visibility: visible;
+                opacity: 1;
+                -webkit-transform: translateY(0);
+                        transform: translateY(0);
+                
+                @media all and (min-width: 760px){
+                    display: none;
+                }
+            }
+            
+        } // &__widget
+        
+        &__icon {
+            display: inline-block;
+            width: 42px;
+            height: 42px;
+            
+            &_vkontakte {
+                svg {
+                    vertical-align: -7px;
+                    
+                    @media all and (min-width: 760px){
+                        vertical-align: -2px;
+                    }
+                }
+            }
+            
+            &_gplus {
+                svg {
+                    width: 18px;
+                    height: 18px;
+                    vertical-align: -5px;
+                    
+                    @media all and (min-width: 760px){
+                        width: 12px;
+                        height: 12px;
+                        vertical-align: -2px;
+                    }
+                }
+            }
+            
+            &_telegram {
+                svg {
+                    // width: 18px;
+                    // height: 18px;
+                    // vertical-align: -5px;
+                    margin-left: -3px;
+                    
+                    @media all and (min-width: 760px){
+                        width: 12px;
+                        height: 12px;
+                        vertical-align: -2px;
+                    }
+                }
+            }
+            
+            &_more {
+                svg {
+                    margin-left: -3px;
+                }
+            }
+            
+            @media all and (min-width: 760px){
+                width: 22px;
+                height: 20px;
             }
         }
-        
-        &_pocket {
+
+        &__button,
+        &__counter {
+            text-decoration: none;
+            text-rendering: optimizeLegibility;
             display: none;
+            margin: 0;
+            outline: 0;
             
             @media all and (min-width: 760px){
                 display: inline-block;
             }
         }
-        
-        &_telegram, &_whatsapp {
-            @media all and (min-width: 760px){
-                display: none;
-            }
-        }
-        
-        &_more {
-            visibility: visible;
-            opacity: 1;
-            -webkit-transform: translateY(0);
-                    transform: translateY(0);
-            
-            @media all and (min-width: 760px){
-                display: none;
-            }
-        }
-        
-    } // &__widget
 
+        &__button {
+            position: relative;
+            cursor: pointer;
+            user-select: none;
+            padding-right: 6px;
+        }
+
+        &__counter {
+            position: relative;
+            font-weight: normal;
+            font-size: 11px;
+            opacity: .5;
+            padding-right: 6px;
+            
+            &_empty {
+                display: none;
+            }
+        }
+
+        &_ready &__counter {
+            @media all and (min-width: 760px){
+                display: inline-block;
+            }
+            
+            &_empty {
+                display: none;
+            }
+        }
+
+        &__widget,
+        &__icon,
+        &__button,
+        &__counter {
+            vertical-align: top;
+        }
+
+        &__button:empty {
+            display: none;
+        }
+        
+    } // .likely
+        
     svg {
         vertical-align: -6px;
         width: 20px;
@@ -146,118 +267,9 @@
         }
     }
     
-    &__icon {
-        display: inline-block;
-        width: 42px;
-        height: 42px;
-        
-        &_vkontakte {
-            svg {
-                vertical-align: -7px;
-                
-                @media all and (min-width: 760px){
-                    vertical-align: -2px;
-                }
-            }
-        }
-        
-        &_gplus {
-            svg {
-                width: 18px;
-                height: 18px;
-                vertical-align: -5px;
-                
-                @media all and (min-width: 760px){
-                    width: 12px;
-                    height: 12px;
-                    vertical-align: -2px;
-                }
-            }
-        }
-        
-        &_telegram {
-            svg {
-                // width: 18px;
-                // height: 18px;
-                // vertical-align: -5px;
-                margin-left: -3px;
-                
-                @media all and (min-width: 760px){
-                    width: 12px;
-                    height: 12px;
-                    vertical-align: -2px;
-                }
-            }
-        }
-        
-        &_more {
-            svg {
-                margin-left: -3px;
-            }
-        }
-        
-        @media all and (min-width: 760px){
-            width: 22px;
-            height: 20px;
-        }
-    }
+} // .likely:not(.likely_custom)
 
-    &__button,
-    &__counter {
-        text-decoration: none;
-        text-rendering: optimizeLegibility;
-        display: none;
-        margin: 0;
-        outline: 0;
-        
-        @media all and (min-width: 760px){
-            display: inline-block;
-        }
-    }
-
-    &__button {
-        position: relative;
-        cursor: pointer;
-        user-select: none;
-        padding-right: 6px;
-    }
-
-    &__counter {
-        position: relative;
-        font-weight: normal;
-        font-size: 11px;
-        opacity: .5;
-        padding-right: 6px;
-        
-        &_empty {
-            display: none;
-        }
-    }
-
-    &_ready &__counter {
-        @media all and (min-width: 760px){
-            display: inline-block;
-        }
-        
-        &_empty {
-            display: none;
-        }
-    }
-
-    &__widget,
-    &__icon,
-    &__button,
-    &__counter {
-        vertical-align: top;
-    }
-
-    &__button:empty {
-        display: none;
-    }
-
-} // .likely
-
-.likely_expanded {
+.likely_expanded:not(.likely_custom) {
     .likely__widget {
         visibility: visible;
         opacity: 1;
@@ -266,7 +278,7 @@
     }
 }
 
-.likely_feed {
+.likely_feed:not(.likely_custom) {
     display: none;
     
     @media all and (min-width: 760px){
