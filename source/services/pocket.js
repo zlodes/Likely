@@ -9,7 +9,7 @@ var pocket = {
     counter: function(url, factory) {
 
         var request = new XMLHttpRequest();
-        request.open('GET', 'http://query.yahooapis.com/v1/public/yql?q=' + encodeURIComponent('select * from html where url="' + url + '" and xpath="*"') + '&format=json', true);
+        request.open('GET', 'https://query.yahooapis.com/v1/public/yql?q=' + encodeURIComponent('select * from html where url="' + url + '" and xpath="*"') + '&format=json', true);
 
         request.onload = function() {
             if (this.status >= 200 && this.status < 400) {
