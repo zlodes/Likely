@@ -191,13 +191,10 @@ LikelyButton.prototype = {
 
         if ( this.service == 'more' ){
 
-            dom.toggleVisible(
-                options.parent,
-                options.className
-            );
+            // console.log(this);
 
-            var el = document.querySelector('.' + config.prefix + 'widget' + '_' + this.service);
-            el.classList.toggle('active');
+            this.widget.classList.toggle('active');
+            this.widget.offsetParent.classList.toggle(this.options.className);
 
         } else {
 
