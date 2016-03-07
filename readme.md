@@ -45,11 +45,10 @@ Likely supports following social networks and mobile messengers:
 Remove `<div class="more"></div>` if you don't want to display button set on small resolutions.
 Keeping it will hide social buttons under one button, which will be fixed in bottom right corner of the screen. Click on it to show hidden buttons.
 
-You can have several Likely button sets on the page, but more than one "More" button per page won't work. 
-Use it only if you have one button set on page (in article, for example).
-
 ### Styling
 For custom styles add class `.likely_custom` to `.likely` container and then write your own css.
+
+Add `.likely_secondary` class to `.likely` to hide button set on small screens. Useful, when you have more than one set on page, but want to show only one on mobile.
 
 ## Options
 

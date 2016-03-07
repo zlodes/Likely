@@ -113,13 +113,5 @@ var dom = module.exports = {
         win.focus();
         
         return win;
-    },
-
-    /**
-     * Toggle parent class to show buttons on mobile 
-     */
-    toggleVisible: function(selector, name) {
-        var el = document.querySelector('.' + selector);
-        el.classList.toggle(name);
     }
 };
