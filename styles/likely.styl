@@ -296,26 +296,6 @@
     }
 }
 
-.likely_feed:not(.likely_custom) {
-    display: none;
-    
-    @media all and (min-width: 760px){
-        display: inline-block;
-    }
-    
-    .likely__widget_more {
-        display: none;
-    }
-}
-
-.likely_secondary {
-    display: none;
-    
-    @media all and (min-width: 760px){
-        display: inline-block;
-    }
-}
-
 // another mobile appearance
 .likely_some:not(.likely_custom) {
     line-height: 32px;
@@ -428,6 +408,26 @@
     }
     
 } // .likely_some
+    
+.likely_feed:not(.likely_custom) {
+    display: none;
+    
+    @media all and (min-width: 760px){
+        display: inline-block;
+    }
+    
+    .likely__widget_more {
+        display: none;
+    }
+}
+
+.likely_secondary, .likely_some.likely_secondary:not(.likely_custom)  {
+    display: none;
+    
+    @media all and (min-width: 760px){
+        display: inline-block;
+    }
+}
 
 // Colors
 colorize(button, color) {
