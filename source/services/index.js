@@ -15,6 +15,7 @@ var services = {
     pocket:        require('./pocket'),
     telegram:      require('./telegram'),
     whatsapp:      require('./whatsapp'),
+    viber:         require('./viber'),
     more:          require('./more')
 };
 

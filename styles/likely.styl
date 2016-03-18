@@ -125,7 +125,7 @@
                 }
             }
             
-            &_telegram, &_whatsapp {
+            &_telegram, &_whatsapp, &_viber {
                 @media all and (min-width: 760px){
                     display: none;
                 }
@@ -179,6 +179,19 @@
                     // height: 18px;
                     // vertical-align: -5px;
                     margin-left: -3px;
+                    
+                    @media all and (min-width: 760px){
+                        width: 12px;
+                        height: 12px;
+                        vertical-align: -2px;
+                    }
+                }
+            }
+            
+            &_viber {
+                svg {
+                    margin-left: -1px;
+                    margin-top: 2px;
                     
                     @media all and (min-width: 760px){
                         width: 12px;
@@ -318,4 +331,5 @@ colorize('odnoklassniki', #f2812e);
 colorize('pocket', #dc3d50);
 colorize('telegram', #2ca5e0);
 colorize('whatsapp', #0f9d58);
+colorize('viber', #7b519d);
 colorize('more', #ce8104);
