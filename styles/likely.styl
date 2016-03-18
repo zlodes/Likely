@@ -70,7 +70,7 @@
             text-align: center;
             position: relative;
             white-space: nowrap;
-            border-radius: 50%;
+            border-radius: 42px;
             height: 42px;
             font-size: 12px;
             color: #fff;
@@ -113,6 +113,7 @@
                 margin-bottom: 0;
                 
                 @media all and (min-width: 760px){
+                    margin-bottom: 2px;
                     margin-right: 0;
                 }
             }
@@ -245,16 +246,6 @@
             }
         }
 
-        &_ready &__counter {
-            @media all and (min-width: 760px){
-                display: inline-block;
-            }
-            
-            &_empty {
-                display: none;
-            }
-        }
-
         &__widget,
         &__icon,
         &__button,
@@ -282,6 +273,19 @@
     }
     
 } // .likely:not(.likely_custom)
+    
+.likely_ready:not(.likely_custom) {
+    
+    .likely__counter {
+        @media all and (min-width: 760px){
+            display: inline-block;
+            
+            &_empty {
+                display: none;
+            }
+        }
+    }
+}
 
 .likely_expanded:not(.likely_custom) {
     .likely__widget {
@@ -311,6 +315,119 @@
         display: inline-block;
     }
 }
+
+// another mobile appearance
+.likely_some:not(.likely_custom) {
+    line-height: 32px;
+    left: 15px;
+    bottom: 9px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap-reverse;
+        -ms-flex-wrap: wrap-reverse;
+            flex-wrap: wrap-reverse;
+            
+    @media all and (min-width: 760px){
+        left: 0;
+    }
+ 
+    .likely {
+        &__widget {
+            display: inline-block;
+            width: 23%;
+            margin-right: 2%;
+            height: 32px;
+            border-radius: 5px;
+            visibility: hidden;
+            opacity: 0;
+            -webkit-transform: translateY(6px);
+                    transform: translateY(6px);
+            
+            @media all and (min-width: 760px){
+                width: auto;
+            }
+            
+            &_twitter, &_facebook, &_vkontakte {
+                visibility: visible;
+                opacity: 1;
+                -webkit-transform: translateY(0);
+                        transform: translateY(0);
+            }
+            
+            &:nth-child(3){
+                margin-right: 25%;
+                
+                @media all and (min-width: 760px){
+                    margin-right: 4px;
+                }
+            }
+            
+            // For 3x3
+            // &:nth-child(3n){
+            //     margin-right: 25%;
+                
+            //     @media all and (min-width: 760px){
+            //         margin-right: 4px;
+            //     }
+            // }
+            
+            &_more {
+                position absolute;
+                bottom: 6px;
+                right: 0;
+                visibility: visible;
+                opacity: 1;
+                -webkit-transform: translateY(0);
+                        transform: translateY(0);
+                        
+                @media all and (min-width: 760px){
+                    position relative;
+                    bottom: 0;
+                }
+            }
+        }
+        
+        &__icon {
+            width: 32px;
+            height: 32px;
+            
+            &_vkontakte {
+                svg {
+                    vertical-align: -4px;
+                }
+            }
+            
+            &_gplus {
+                svg {
+                    width: 14px;
+                    height: 14px;
+                    vertical-align: -3px;
+                }
+            }
+        }
+        
+    } // .likely
+    
+    svg {
+        width: 16px;
+        height: 16px;
+        vertical-align: -4px;
+    }
+    
+    &.likely_expanded {
+        .likely {
+            &__widget {
+                visibility: visible;
+                opacity: 1;
+                -webkit-transform: translateY(0);
+                        transform: translateY(0);
+            }
+        }
+    }
+    
+} // .likely_some
 
 // Colors
 colorize(button, color) {
