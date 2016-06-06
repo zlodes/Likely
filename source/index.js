@@ -11,34 +11,35 @@ var Likely = require('./widget'),
  */
 var likely = function (node, options) {
     options = options || {};
-    
+
     var widget = node[config.name];
-    
+
     if (widget) {
         widget.update(options);
     }
     else {
         node[config.name] = new Likely(node, utils.merge(
-            {}, likely.defaults, 
+            {}, likely.defaults,
             options, utils.bools(node)
         ));
     }
-    
+	
     return widget;
-}
+};
 
 /**
  * Initiate Likely buttons on load
  */
 likely.initiate = likely.initate = function () {
     var widgets = dom.findAll('.' + config.name);
-    
+
     utils.toArray(widgets)
          .forEach(likely);
+
 };
 
 /**
- * Defaults options for likely 
+ * Defaults options for likely
  */
 likely.defaults = {
     counters: true,
